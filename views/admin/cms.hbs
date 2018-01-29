@@ -1,0 +1,22 @@
+<div class="container">
+  <h1 class="my-4">WD6-International Inventory</h1>
+  <p class="w-25"><a href="/inventory/add-new" class="btn btn-primary w-50 my-3">Add</a></p>
+  {{# each products }}
+  <div class="row">
+    {{# each this }}
+    <div class="col-sm-6 col-md-4 mt-3">
+      <div class="thumbnail">
+        <img class="img-respon" src="{{this.imagePath}}" alt="{{this.title}}" style="max-height: 150px">
+        <div class="caption">
+          <h3>{{this.title}}</h3>
+          <div class="clearfix">
+            <div class="price py-1">${{this.price}}</div>
+            <a href="/inventory/delete-item/{{ this._id }}" class="btn btn-success" role="button">Delete</a>
+            <a href="/inventory/edit-item/{{ this._id }}" class="btn btn-success" role="button">Edit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/each}}

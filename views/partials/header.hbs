@@ -1,0 +1,58 @@
+<div class="header">
+
+  <div class="header-top">
+    <div class="container">
+      <div class="header-left">
+        <ul>
+          {{# if login}} {{# if admin }}
+            <li><a href="/user/admin">Inventory</a></li>
+            <li role="separator" class="divider"></li>
+          {{/if}}
+            <li><a href="/user/profile">User Account</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/user/logout">Logout</a></li>
+          {{ else }}
+            <li><a href="/user/signup">Sign Up</a></li>
+            <li><a href="/user/signin">Sign In</a></li>
+          {{/if}}
+        </ul>
+        <div class="cart box_1">
+          <a href="/shopping-cart/">
+            <h3>
+              <div class="total">
+                {{#if thatUser}}
+                  {{#if thatUser.cart}}
+                    ${{ thatUser.cart.totalPrice }}
+                  {{else}}
+                    $0.00
+                  {{/if}}
+                {{else if session.cart.totalPrice }}
+                  ${{ session.cart.totalPrice }}
+                {{else}}
+                  $0.00
+                {{/if}}
+                 (<span id="simpleCart_quantity" class="simpleCart_quantity"></span>{{#if thatUser}}{{ thatUser.cart.totalQty }}{{else}}{{session.cart.totalQty}}{{/if}} items)</div>
+            </h3>
+          </a>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="head-top">
+      <div class=" h_menu4">
+        <ul class="memenu skyblue">
+          <li class="{{#if home }}active{{/if}} grid"><a class="color8" href="/">Home</a></li>
+          <li class="{{#if phones }}active{{/if}}"><a class="color4" href="/shop-phones">Phones</a></li>
+          {{!-- <li class="{{#if contact }}active{{/if}}"><a class="color6" href="/contact-us">Contact</a></li> --}}
+        </ul>
+      </div>
+
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+
+</div>

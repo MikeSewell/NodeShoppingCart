@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="account">
+    <h1>Sign In</h1>
+
+    <div class="account-pass">
+      {{#if hasErrors}}
+        <div class="alert alert-danger">
+          {{#each messages}}
+            <p>{{this}}</p>
+          {{/each}}
+        </div>
+      {{/if}}
+      
+      <div class="col-md-8 col-md-offset-2 account-top">
+        <form action="/user/signin" method="POST">
+          {{!-- Email --}}
+          <p class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+          </p>
+          {{!-- Password --}}
+          <p class="form-group">
+             <label for="password">Password</label>
+             <input type="password" name="password" id="password">
+           </p>
+          <input type="hidden" name="_csrf" value="{{csrfToken}}">
+          {{!-- Logins --}}
+          <div class="themLogins">
+            {{!-- Normal --}}
+            <div class="regularLogin">
+              <input type="submit" value="Sign In" class="my-2">
+              <a href="/user/signup" class="create mt-2" style="width:90%" >Create an account</a>
+              
+            </div>
+            {{!-- Social --}}
+            <div class="socialLogin py-3">
+              <a class="btn btn-block btn-social btn-twitter mt-1" href="/user/twitter">
+                <i class="fa fa-twitter"></i> Sign in with Twitter
+              </a>
+              <a class="btn btn-block btn-social btn-google mt-3" href="/user/google">
+                <i class="fa fa-google"></i> Sign in with Google
+              </a>
+            </div>
+          </div>
+          {{!-- <div>
+            <a href="/user/signup" class="create">Create an account</a>
+          </div> --}}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
